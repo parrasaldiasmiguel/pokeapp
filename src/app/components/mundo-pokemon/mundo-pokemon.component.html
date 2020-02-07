@@ -1,0 +1,29 @@
+<h1 class="align-content-center">Mundo Pokémon</h1>
+<hr>
+<div class="row text-center" *ngIf="!cargaPokemon">
+    <div class="col">
+        <i class="fa fa-sync fa-spin fa-5x"></i>
+
+        <BR>
+        <BR>CARGANDO POKÉMONS
+    </div>
+</div>
+<!--Agregar for para capturar el id, luego enviar ese id hacia el servicio y llamar los datos de pokémon-->
+<div class="card-columns m-50 animated fadeIn" *ngIf="cargaPokemon && pokemons">
+    <div (click)="verPokemon(pokemon)" class="card puntero" *ngFor="let pokemon of pokemons.results">
+        <div class="id">{{pokemon.id}}</div>
+        <!---->
+        <img class="card-img-top" src="{{pokemon.details.sprites.front_default}}" alt="photo of {{pokemon.name}}">
+        <div class="card-body">
+            <h5 class="card-title align-content-center">{{ pokemon.name | titlecase}}</h5>
+            <!-- -->
+            <div style="display: inline-block;">
+                <div class="" *ngFor="let tipos of pokemon.details.types">
+                    {{tipos.type.name | titlecase}}
+                </div>
+                <!-- <div *ngFor="let movimientos of pokemon.details.moves.slice(0,2)">
+                    {{movimientos.move.name}}
+                </div>-->
+
+            </div>
+        </div>

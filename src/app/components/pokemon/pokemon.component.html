@@ -1,0 +1,31 @@
+<h1 class="animated fadeIn">{{ pokemons.name | uppercase}} <br><small>Pokédex: {{pokemons.id}} </small></h1>
+<h4 class="animated fadeIn"> </h4>
+<hr>
+<div class="row animated fadeIn fast">
+
+    <div class="col-md-4">
+        <img src="{{pokemons.sprites.front_default}}" style="width:500px;height: 300px;" class="img-fluid" alt="">
+        <br>
+        <br>
+        <a [routerLink]="['/mundopokemon']" class="btn btn-outline-danger btn-block">Regresar</a>
+    </div>
+
+    <div class="col-md-8">
+        <h3>{{onlyPokemon.genera["4"].genus}}</h3><br>
+        <div class="" *ngFor="let tipos of pokemons.types">
+            <h3> {{tipos.type.name | titlecase}}
+
+            </h3>
+        </div>
+
+        <hr>
+        <div class="cuerpo">
+            <h5>Porcentaje de Captura: {{onlyPokemon.capture_rate}} %</h5>
+            <p>
+                {{onlyPokemon.flavor_text_entries["3"].flavor_text}}
+
+            </p>
+        </div>
+
+    </div>
+</div>
